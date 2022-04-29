@@ -280,27 +280,31 @@ output.DisableMouseAllMotion()
 
 ## Optional Feature Support
 
-| Terminal         | Alt Screen | Query Color Scheme | Query Cursor Position | Set Window Title | Change Cursor Color | Change Default Foreground Setting | Change Default Background Setting |
-| ---------------- | :--------: | :----------------: | :-------------------: | :--------------: | :-----------------: | :-------------------------------: | :-------------------------------: |
-| alacritty        |     ✅      |         ✅          |           ✅           |        ✅         |          ✅          |                 ✅                 |                 ✅                 |
-| foot             |     ✅      |         ✅          |           ✅           |        ✅         |          ✅          |                 ✅                 |                 ✅                 |
-| kitty            |     ✅      |         ✅          |           ✅           |        ✅         |          ✅          |                 ✅                 |                 ✅                 |
-| Konsole          |     ✅      |         ✅          |           ✅           |        ✅         |          ❌          |                 ✅                 |                 ✅                 |
-| rxvt             |     ✅      |         ❌          |           ✅           |        ✅         |          ✅          |                 ✅                 |                 ✅                 |
-| screen           |     ✅      |      ⛔[^mux]       |           ✅           |        ✅         |          ❌          |                 ❌                 |                 ✅                 |
-| st               |     ✅      |         ✅          |           ✅           |        ✅         |          ✅          |                 ✅                 |                 ✅                 |
-| tmux             |     ✅      |      ⛔[^mux]       |           ✅           |        ✅         |          ✅          |                 ✅                 |                 ✅                 |
-| vte-based[^vte]  |     ✅      |         ✅          |           ✅           |        ✅         |          ✅          |                 ✅                 |                 ❌                 |
-| wezterm          |     ✅      |         ✅          |           ✅           |        ✅         |          ✅          |                 ✅                 |                 ✅                 |
-| xterm            |     ✅      |         ✅          |           ✅           |        ✅         |          ❌          |                 ❌                 |                 ❌                 |
-| Linux Console    |     ✅      |         ❌          |           ✅           |        ⛔         |          ❌          |                 ❌                 |                 ❌                 |
-| Apple Terminal   |     ✅      |         ✅          |           ✅           |        ✅         |          ❌          |                 ✅                 |                 ✅                 |
-| iTerm            |     ✅      |         ✅          |           ✅           |        ✅         |          ❌          |                 ❌                 |                 ❌                 |
-| Windows cmd      |     ✅      |         ❌          |           ✅           |        ✅         |          ✅          |                 ✅                 |                 ✅                 |
-| Windows Terminal |     ✅      |         ❌          |           ✅           |        ✅         |          ✅          |                 ✅                 |                 ✅                 |
+| Terminal         | Alt Screen | Query Color Scheme | Query Cursor Position | Set Window Title | Change Cursor Color | Change Default Foreground Setting | Change Default Background Setting | Copy (OSC52) |
+| ---------------- | :--------: | :----------------: | :-------------------: | :--------------: | :-----------------: | :-------------------------------: | :-------------------------------: | :-------------------------------: |
+| alacritty        |     ✅      |         ✅          |           ✅           |        ✅         |          ✅          |                 ✅                 |                 ✅                 |                 ✅                 |
+| foot             |     ✅      |         ✅          |           ✅           |        ✅         |          ✅          |                 ✅                 |                 ✅                 |                 ✅                 |
+| kitty            |     ✅      |         ✅          |           ✅           |        ✅         |          ✅          |                 ✅                 |                 ✅                 |                 ✅                 |
+| Konsole          |     ✅      |         ✅          |           ✅           |        ✅         |          ❌          |                 ✅                 |                 ✅                 |                 ❌[^konsole]                 |
+| rxvt             |     ✅      |         ❌          |           ✅           |        ✅         |          ✅          |                 ✅                 |                 ✅                 |                 ✅                 |
+| urxvt             |     ✅      |         ❌          |           ✅           |        ✅         |          ✅          |                 ✅                 |                 ✅                 |                 ✅[^urxvt]                |
+| screen           |     ✅      |      ⛔[^mux]       |           ✅           |        ✅         |          ❌          |                 ❌                 |                 ✅                 |                 ✅                 |
+| st               |     ✅      |         ✅          |           ✅           |        ✅         |          ✅          |                 ✅                 |                 ✅                 |                 ✅                 |
+| tmux             |     ✅      |      ⛔[^mux]       |           ✅           |        ✅         |          ✅          |                 ✅                 |                 ✅                 |                 ✅                 |
+| vte-based[^vte]  |     ✅      |         ✅          |           ✅           |        ✅         |          ✅          |                 ✅                 |                 ❌                 |                 ❌[^vte]                 |
+| wezterm          |     ✅      |         ✅          |           ✅           |        ✅         |          ✅          |                 ✅                 |                 ✅                 |                 ✅                 |
+| xterm            |     ✅      |         ✅          |           ✅           |        ✅         |          ❌          |                 ❌                 |                 ❌                 |                 ✅                 |
+| Linux Console    |     ✅      |         ❌          |           ✅           |        ⛔         |          ❌          |                 ❌                 |                 ❌                 |                 ⛔                 |
+| Apple Terminal   |     ✅      |         ✅          |           ✅           |        ✅         |          ❌          |                 ✅                 |                 ✅                 |                 ✅[^apple]                |
+| iTerm            |     ✅      |         ✅          |           ✅           |        ✅         |          ❌          |                 ❌                 |                 ❌                 |                 ✅                 |
+| Windows cmd      |     ✅      |         ❌          |           ✅           |        ✅         |          ✅          |                 ✅                 |                 ✅                 |                 ❌                 |
+| Windows Terminal |     ✅      |         ❌          |           ✅           |        ✅         |          ✅          |                 ✅                 |                 ✅                 |                 ✅                 |
 
-[^vte]: This covers all vte-based terminals, including Gnome Terminal, guake, Pantheon Terminal, Terminator, Tilix, XFCE Terminal.
+[^vte]: This covers all vte-based terminals, including Gnome Terminal, guake, Pantheon Terminal, Terminator, Tilix, XFCE Terminal. OSC52 is not supported, see [issue#2495](https://gitlab.gnome.org/GNOME/vte/-/issues/2495)
 [^mux]: Unavailable as multiplexers (like tmux or screen) can be connected to multiple terminals (with different color settings) at the same time.
+[^urxvt]: Workaround for urxvt not supporting OSC52. See [this](https://unix.stackexchange.com/a/629485) for more information.
+[^konsole]: OSC52 is not supported, for more info see [bug#372116](https://bugs.kde.org/show_bug.cgi?id=372116)
+[^apple]: OSC52 works with a [workaround](https://github.com/roy2220/osc52pty).
 
 You can help improve this list! Check out [how to](ansi_compat.md) and open an issue or pull request.
 
