@@ -45,4 +45,6 @@ func main() {
 	termenv.Copy(hw)
 	fmt.Println()
 	fmt.Printf("\t%q copied to clipboard\n", hw)
+
+	fmt.Printf("\t%s", termenv.Hyperlink("http://example.com", "This is a link"))
 }
